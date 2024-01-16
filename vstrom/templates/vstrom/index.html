@@ -1,0 +1,98 @@
+{% extends 'vstrom/base.html' %}
+{% block content %}
+    <!-- Carrousel d'images -->
+    <div id="carousel-container" class="carousel-container">
+        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <!-- Indicateurs du carrousel -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+                <li data-target="#carousel" data-slide-to="3"></li>
+                <li data-target="#carousel" data-slide-to="4"></li>
+            </ol>
+
+            <!-- Images du carrousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.suzuki2wheels.be/content/dam/moteo/suzuki-moto/categories/adventure/dl-800-de/m3/color-model-page/DL800DE_M3_QT7.jpg" class="d-block w-100" alt="vstrom">
+
+                </div>
+                <div class="carousel-item">
+                    <img src="https://moto.suzuki.fr/wp-content/uploads/2023/03/3-7-768x512.png" class="d-block w-100" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.motomag.com/IMG/jpg/suzuki-vstrom-800-de-2023-8.jpg" class="d-block w-100" alt="Image 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://a.mcdn.es/mnet/contents/media/suzuki/v__strom_800_de/1202389.jpg/900x505cut/" class="d-block w-100" alt="Image 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://blog.la-becanerie.com/wp-content/uploads/2020/12/le-salon-de-la-moto-%C2%A9AAMF.jpg" class="d-block w-100" alt="Image 5">
+                </div>
+            </div>
+            <div class="container carousel-caption ml-5 mr-5">
+                <span><h5>Engagez-vous !</h5></span>
+                <div><h1>Recherchez les manifestations autour de la V-Strom 800-DE</h1></div>
+                <span><h6>Développé, maintenu et supporté par un ancien possesseur de V-Strom 650</h6></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des événements -->
+    <div class="event-banner py-2">
+        <div class="container mt-4">
+            <div class="mb-3">
+                <h3>Événements à venir</h3>
+            </div>
+
+            <div class="row">
+                {% for evenement in evenements %}
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <div class="col-md-4 d-flex align-items-center">
+                                    <img src="{{ evenement.image_url }}" class="card-img mx-auto p-5" alt="{{ evenement.nom }}">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <p class="card-text">{{ evenement.date|date:"d M."|upper }}</p>
+                                        <h5 class="card-title">{{ evenement.nom }}</h5>
+                                        <span class="badge badge-secondary badge-light-bg p-2">
+                                    <i class="fa fa-user text-dark mr-2"></i> <span class="text-dark">{{ evenement.participation_set.count }} participants </span>
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="details-banner py-2">
+        <div class="container mt-4">
+            <div class="mb-3">
+                <h3>Obtenir les détails</h3>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form.evenements.label_tag }}
+                                {{ form.evenements }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.participants.label_tag }}
+                                {{ form.participants }}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Afficher les détails</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -70,3 +70,20 @@
     text-align: left;
     color: white;
 }
+
+.event-banner {
+    background-color: #f5f8fc;
+}
+
+.details-banner {
+    background-color: #ffffff;
+}
+
+.contact-banner {
+    background-color: #f5f8fc;
+}
+
+
+.badge-light-bg {
+    background-color: #edf1f5;
+}

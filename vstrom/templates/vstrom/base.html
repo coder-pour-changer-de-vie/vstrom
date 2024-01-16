@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Strom 800-DE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"/>
+    <link rel="stylesheet" href="{% static 'vstrom/css/styles.css' %}">
+</head>
+
+<body>
+
+<!-- Bandeau -->
+<div class="top-banner px-3 py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Icônes sur la gauche -->
+        <div class="logos">
+            <img src="https://moto.suzuki.fr/wp-content/uploads/2023/03/logo_suzuki.svg" alt="logo susuki" class="logo">
+            <img src="https://www.tom-barrer.com/wp-content/uploads/2023/10/tom-barrer-logo.png" alt="tom barrer" class="logo">
+        </div>
+
+        <!-- Boutons sur la droite -->
+        <div>
+            <button type="button" class="btn btn-outline-secondary">Créer un compte</button>
+            <button type="button" class="btn btn-primary">Connexion</button>
+        </div>
+    </div>
+</div>
+
+<!-- Barre de navigation -->
+<nav class="navbar navbar-expand-lg justify-content-between align-items-center navbar-custom">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="#">Championnats de 800-DE</a>
+            <a class="navbar-brand" href="#">Manifestations</a>
+            <a class="navbar-brand" href="#">Adhésions</a>
+        </div>
+        <div>
+            <form class="form-inline">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Recherche" aria-label="Recherche" aria-describedby="basic-addon1">
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+{% block content %}{% endblock content %}
+
+<!-- Pied de page -->
+<footer class="footer mt-4 py-3 bg-dark">
+    <div class="container">
+        <span class="text-muted">Suivez-nous sur les réseaux sociaux !</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js" defer="" ></script>
+</body>
+</html>
