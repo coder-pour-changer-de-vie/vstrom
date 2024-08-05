@@ -7,5 +7,5 @@ app_name = 'vstrom'
 urlpatterns = [
     path('', views.index, name='index'),
     path('load_participants/', views.load_participants, name='load_participants'),
-    path('post_contact/', views.post_contact, name='post_contact')
+    #path('post_contact/', views.post_contact, name='post_contact')
 ]
